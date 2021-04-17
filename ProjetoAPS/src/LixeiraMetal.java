@@ -1,5 +1,5 @@
 public class LixeiraMetal extends LixeiraNaoOrganico implements LixoCortante {
-    
+
     private boolean embrulhado;
 
     public LixeiraMetal() {
@@ -14,9 +14,9 @@ public class LixeiraMetal extends LixeiraNaoOrganico implements LixoCortante {
 
     @Override
     public void verDescartaveis() {
-        
+
     }
-    
+
     public boolean isEmbrulhado() {
         return embrulhado;
     }
