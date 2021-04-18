@@ -57,7 +57,7 @@ public class App {
         Thread.sleep(500);
         System.out.println(
                 "Nesse sistema de reciclagem você será responsável por jogar o lixo no lugar certo, contribuindo para a reciclagem e para o desenvolvimento sustentável do nosso planeta.");
-        Thread.sleep(1500);
+        Thread.sleep(1000);
         System.out.println(
                 "Temos um sistema de menu onde você pode sair a qualquer momento do programa ou chamar alguma funcionalidade disponível, aqui estão elas:");
         Thread.sleep(1000);
@@ -127,6 +127,8 @@ public class App {
                     break;
                 }
 
+                System.out.println();
+
                 break;
 
             case 3:
@@ -184,6 +186,7 @@ public class App {
                     pessoa.jogarLixo(lixoPego, lixeiraOrganico);
                     listaLixo.remove(numeroRandom);
                     break;
+
                 default:
                     System.out.println("Escolha alguma opção válida!");
                     break;
@@ -207,6 +210,7 @@ public class App {
                     System.out.println("Operação cancelada");
                     System.out.println();
                     break;
+
                 case 1:
                     lixeiraVidro.embrulharLixo();
                     break;
@@ -220,9 +224,8 @@ public class App {
                     break;
                 }
 
-                System.out.println();
                 break;
-                
+
             case 5:
                 System.out.println("\n" + listaLixo.toString() + "\n");
                 break;
@@ -232,7 +235,7 @@ public class App {
                 break;
             }
 
-        } while (opc != 0);
+        } while (opc != 0 && listaLixo.size() > 0);
 
         System.out.println("\nFim do programa. Obrigado por ajudar a tornar o mundo um lugar melhor!");
 

@@ -10,7 +10,8 @@ public class LixeiraVidro extends LixeiraNaoOrganico implements LixoCortante {
 
     public void embrulharLixo() {
         System.out.println();
-        System.out.println(this.isEmbrulhado() ? "O lixo já está embrulhado, não é possível embrulhá-lo novamente"
+        System.out.println(this.getLixoDentro().size() == 0 ? "O lixo está vazio, ele não pode ser embrulhado"
+        : this.isEmbrulhado() ? "O lixo já está embrulhado, não é possível embrulhá-lo novamente"
         : "Você embrulhou o lixo, muito obrigado por estar se preocupando com o meio ambiente e com quem trabalha reciclando!");
         this.setEmbrulhado(true);
         System.out.println();
