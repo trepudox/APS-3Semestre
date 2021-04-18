@@ -9,4 +9,9 @@ public class LixeiraOrganico extends Lixeira {
         
     }
 
+    @Override
+    public String toString() {
+        return "Lixeira Organica";
+    }
+
 }

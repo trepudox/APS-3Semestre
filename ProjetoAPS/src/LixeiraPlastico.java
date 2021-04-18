@@ -10,4 +10,9 @@ public class LixeiraPlastico extends LixeiraNaoOrganico {
         
     }
 
+    @Override
+    public String toString() {
+        return "Lixeira de Plastico";
+    }
+
 }
