@@ -7,7 +7,7 @@ public class LixeiraPapel extends LixeiraNaoOrganico {
 
     @Override
     public void verDescartaveis() {
-        
+        System.out.println("Exemplo de descartáveis: Papel, jornais, caixas em geral");
     }
 
     @Override

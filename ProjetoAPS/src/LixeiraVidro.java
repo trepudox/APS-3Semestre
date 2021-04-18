@@ -19,7 +19,7 @@ public class LixeiraVidro extends LixeiraNaoOrganico implements LixoCortante {
 
     @Override
     public void verDescartaveis() {
-        System.out.println("teste");
+        System.out.println("Exemplo de descartáveis: Garrafas, frascos e materiais de vidro em geral");
     }
 
     public boolean isEmbrulhado() {

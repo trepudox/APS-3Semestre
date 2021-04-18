@@ -19,7 +19,7 @@ public class LixeiraMetal extends LixeiraNaoOrganico implements LixoCortante {
 
     @Override
     public void verDescartaveis() {
-
+        System.out.println("Exemplo de descartáveis: Latas de alumínio, tampas de garrafas, materiais de aço");
     }
 
     public boolean isEmbrulhado() {

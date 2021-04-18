@@ -6,7 +6,7 @@ public class LixeiraOrganico extends Lixeira {
     }
 
     public void verDescartaveis() {
-        
+        System.out.println("Exemplo de descartáveis: Restos de alimento, cascas de fruta, folhas e madeiras");
     }
 
     @Override

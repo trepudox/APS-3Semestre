@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -63,160 +65,172 @@ public class App {
         Thread.sleep(1000);
         menu();
         Thread.sleep(250);
-
-        do {
-            System.out.print("Escolha a opção desejada: ");
-            opc = scanner.nextInt();
-
-            switch (opc) {
-            case 0:
-                break;
-
-            case 1:
-                menu();
-                break;
-
-            case 2:
-
-                System.out.println("\nESCOLHER LIXEIRA");
-                Thread.sleep(100);
-                System.out.println("0 - Cancelar");
-                Thread.sleep(100);
-                System.out.println("1 - Lixeira de Papel");
-                Thread.sleep(100);
-                System.out.println("2 - Lixeira de Plastico");
-                Thread.sleep(100);
-                System.out.println("3 - Lixeira de Metal");
-                Thread.sleep(100);
-                System.out.println("4 - Lixeira de Vidro");
-                Thread.sleep(100);
-                System.out.println("5 - Lixeira Organico");
-                Thread.sleep(100);
+        
+        try {
+            do {
                 System.out.print("Escolha a opção desejada: ");
-                opc2 = scanner.nextInt();
+                opc = scanner.nextInt();
 
-                System.out.println();
-
-                switch (opc2) {
+                switch (opc) {
                 case 0:
-                    System.out.println("Operação cancelada");
                     break;
 
                 case 1:
-                    lixeiraPapel.verInfo();
+                    menu();
                     break;
 
                 case 2:
-                    lixeiraPlastico.verInfo();
+
+                    System.out.println("\nESCOLHER LIXEIRA");
+                    Thread.sleep(100);
+                    System.out.println("0 - Cancelar");
+                    Thread.sleep(100);
+                    System.out.println("1 - Lixeira de Papel");
+                    Thread.sleep(100);
+                    System.out.println("2 - Lixeira de Plastico");
+                    Thread.sleep(100);
+                    System.out.println("3 - Lixeira de Metal");
+                    Thread.sleep(100);
+                    System.out.println("4 - Lixeira de Vidro");
+                    Thread.sleep(100);
+                    System.out.println("5 - Lixeira Organico");
+                    Thread.sleep(100);
+                    System.out.print("Escolha a opção desejada: ");
+                    opc2 = scanner.nextInt();
+
+                    System.out.println();
+
+                    switch (opc2) {
+                    case 0:
+                        System.out.println("Operação cancelada");
+                        break;
+
+                    case 1:
+                        lixeiraPapel.verInfo();
+                        break;
+
+                    case 2:
+                        lixeiraPlastico.verInfo();
+                        break;
+
+                    case 3:
+                        lixeiraMetal.verInfo();
+                        break;
+
+                    case 4:
+                        lixeiraVidro.verInfo();
+                        break;
+
+                    case 5:
+                        lixeiraOrganico.verInfo();
+                        break;
+
+                    default:
+                        System.out.println("Escolha alguma opção válida!");
+                        break;
+                    }
+
+                    System.out.println();
+
                     break;
 
                 case 3:
-                    lixeiraMetal.verInfo();
+                    int numeroRandom = random.nextInt(listaLixo.size());
+                    Lixo lixoPego = listaLixo.get(numeroRandom);
+
+                    System.out.println("\nVocê pegou " + lixoPego.getNome());
+                    Thread.sleep(750);
+
+                    System.out.println("\nESCOLHER LIXEIRA");
+                    Thread.sleep(100);
+                    System.out.println("0 - Cancelar");
+                    Thread.sleep(100);
+                    System.out.println("1 - Lixeira de Papel");
+                    Thread.sleep(100);
+                    System.out.println("2 - Lixeira de Plastico");
+                    Thread.sleep(100);
+                    System.out.println("3 - Lixeira de Metal");
+                    Thread.sleep(100);
+                    System.out.println("4 - Lixeira de Vidro");
+                    Thread.sleep(100);
+                    System.out.println("5 - Lixeira Organico");
+                    Thread.sleep(100);
+                    System.out.print("Escolha a opção desejada: ");
+                    opc2 = scanner.nextInt();
+
+                    System.out.println();
+
+                    switch (opc2) {
+                    case 0:
+                        System.out.println("Operação cancelada");
+                        break;
+
+                    case 1:
+                        pessoa.jogarLixo(lixoPego, lixeiraPapel);
+                        listaLixo.remove(numeroRandom);
+                        break;
+
+                    case 2:
+                        pessoa.jogarLixo(lixoPego, lixeiraPlastico);
+                        listaLixo.remove(numeroRandom);
+                        break;
+
+                    case 3:
+                        pessoa.jogarLixo(lixoPego, lixeiraMetal);
+                        listaLixo.remove(numeroRandom);
+                        break;
+
+                    case 4:
+                        pessoa.jogarLixo(lixoPego, lixeiraVidro);
+                        listaLixo.remove(numeroRandom);
+                        break;
+
+                    case 5:
+                        pessoa.jogarLixo(lixoPego, lixeiraOrganico);
+                        listaLixo.remove(numeroRandom);
+                        break;
+
+                    default:
+                        System.out.println("Escolha alguma opção válida!");
+                        break;
+                    }
+
+                    System.out.println();
+
                     break;
 
                 case 4:
-                    lixeiraVidro.verInfo();
+                    System.out.println("\nEMBRULHAR LIXO CORTANTE");
+                    System.out.println("0 - Cancelar");
+                    System.out.println("1 - Lixeira de Vidro");
+                    System.out.println("2 - Lixeira de Metal");
+                    System.out.print("Escolha a opção desejada: ");
+                    opc2 = scanner.nextInt();
+
+                    switch (opc2) {
+                    case 0:
+                        System.out.println();
+                        System.out.println("Operação cancelada");
+                        System.out.println();
+                        break;
+
+                    case 1:
+                        lixeiraVidro.embrulharLixo();
+                        break;
+
+                    case 2:
+                        lixeiraMetal.embrulharLixo();
+                        break;
+
+                    default:
+                        System.err.println("\nEscolha alguma opção válida!\n");
+                        break;
+                    }
+
                     break;
 
                 case 5:
-                    lixeiraOrganico.verInfo();
-                    break;
-
-                default:
-                    System.out.println("Escolha alguma opção válida!");
-                    break;
-                }
-
-                System.out.println();
-
-                break;
-
-            case 3:
-                int numeroRandom = random.nextInt(listaLixo.size());
-                Lixo lixoPego = listaLixo.get(numeroRandom);
-
-                System.out.println("\nVocê pegou " + lixoPego.getNome());
-                Thread.sleep(750);
-
-                System.out.println("\nESCOLHER LIXEIRA");
-                Thread.sleep(100);
-                System.out.println("0 - Cancelar");
-                Thread.sleep(100);
-                System.out.println("1 - Lixeira de Papel");
-                Thread.sleep(100);
-                System.out.println("2 - Lixeira de Plastico");
-                Thread.sleep(100);
-                System.out.println("3 - Lixeira de Metal");
-                Thread.sleep(100);
-                System.out.println("4 - Lixeira de Vidro");
-                Thread.sleep(100);
-                System.out.println("5 - Lixeira Organico");
-                Thread.sleep(100);
-                System.out.print("Escolha a opção desejada: ");
-                opc2 = scanner.nextInt();
-
-                System.out.println();
-
-                switch (opc2) {
-                case 0:
-                    System.out.println("Operação cancelada");
-                    break;
-
-                case 1:
-                    pessoa.jogarLixo(lixoPego, lixeiraPapel);
-                    listaLixo.remove(numeroRandom);
-                    break;
-
-                case 2:
-                    pessoa.jogarLixo(lixoPego, lixeiraPlastico);
-                    listaLixo.remove(numeroRandom);
-                    break;
-
-                case 3:
-                    pessoa.jogarLixo(lixoPego, lixeiraMetal);
-                    listaLixo.remove(numeroRandom);
-                    break;
-
-                case 4:
-                    pessoa.jogarLixo(lixoPego, lixeiraVidro);
-                    listaLixo.remove(numeroRandom);
-                    break;
-
-                case 5:
-                    pessoa.jogarLixo(lixoPego, lixeiraOrganico);
-                    listaLixo.remove(numeroRandom);
-                    break;
-
-                default:
-                    System.out.println("Escolha alguma opção válida!");
-                    break;
-                }
-
-                System.out.println();
-
-                break;
-
-            case 4:
-                System.out.println("\nEMBRULHAR LIXO CORTANTE");
-                System.out.println("0 - Cancelar");
-                System.out.println("1 - Lixeira de Vidro");
-                System.out.println("2 - Lixeira de Metal");
-                System.out.print("Escolha a opção desejada: ");
-                opc2 = scanner.nextInt();
-
-                switch (opc2) {
-                case 0:
-                    System.out.println();
-                    System.out.println("Operação cancelada");
-                    System.out.println();
-                    break;
-
-                case 1:
-                    lixeiraVidro.embrulharLixo();
-                    break;
-
-                case 2:
-                    lixeiraMetal.embrulharLixo();
+                    System.out.println("\n" + listaLixo.toString() + "\n");
                     break;
 
                 default:
@@ -224,21 +238,22 @@ public class App {
                     break;
                 }
 
-                break;
-
-            case 5:
-                System.out.println("\n" + listaLixo.toString() + "\n");
-                break;
-
-            default:
-                System.err.println("\nEscolha alguma opção válida!\n");
-                break;
-            }
-
-        } while (opc != 0 && listaLixo.size() > 0);
+            } while (opc != 0 && listaLixo.size() > 0);
+        } catch (InputMismatchException e) {
+            System.err.println("\nInsira apenas dados válidos para o funcionamento correto do programa.\n");
+            scanner.close();
+            Thread.sleep(5000);
+            return;
+        } catch (NoSuchElementException e) {
+            System.err.println("\nO programa teve o seu encerramento forçado.\n");
+            scanner.close();
+            Thread.sleep(5000);
+            return;
+        }
 
         System.out.println("\nFim do programa. Obrigado por ajudar a tornar o mundo um lugar melhor!");
 
         scanner.close();
+        Thread.sleep(5000);
     }
 }
