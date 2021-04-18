@@ -11,7 +11,7 @@ public abstract class Lixeira {
 
     public abstract void verDescartaveis();
 
-    public void verInfo() throws Exception {
+    public final void verInfo() throws Exception {
         System.out.println("Cor da lixeira: " + this.getCor());
         Thread.sleep(100);
         System.out.println("Tipo de material: " + this.getTipoMaterial());

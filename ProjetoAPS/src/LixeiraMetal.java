@@ -8,6 +8,7 @@ public class LixeiraMetal extends LixeiraNaoOrganico implements LixoCortante {
         this.setEmbrulhado(false);
     }
 
+    @Override
     public void embrulharLixo() {
         System.out.println();
         System.out.println(this.getLixoDentro().size() == 0 ? "O lixo está vazio, ele não pode ser embrulhado"
