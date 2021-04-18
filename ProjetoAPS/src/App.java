@@ -43,6 +43,9 @@ public class App {
         populaLista();
         int opc = 0;
         int opc2 = 0;
+        int contadorLixeiraCerta = 0;
+        int contadorLixeiraErrada = 0;
+        boolean jogouNoLixoCerto = false;
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
 
@@ -166,33 +169,38 @@ public class App {
                         break;
 
                     case 1:
-                        pessoa.jogarLixo(lixoPego, lixeiraPapel);
+                        jogouNoLixoCerto = pessoa.jogarLixo(lixoPego, lixeiraPapel);
                         listaLixo.remove(numeroRandom);
                         break;
 
                     case 2:
-                        pessoa.jogarLixo(lixoPego, lixeiraPlastico);
+                        jogouNoLixoCerto = pessoa.jogarLixo(lixoPego, lixeiraPlastico);
                         listaLixo.remove(numeroRandom);
                         break;
 
                     case 3:
-                        pessoa.jogarLixo(lixoPego, lixeiraMetal);
+                        jogouNoLixoCerto = pessoa.jogarLixo(lixoPego, lixeiraMetal);
                         listaLixo.remove(numeroRandom);
                         break;
 
                     case 4:
-                        pessoa.jogarLixo(lixoPego, lixeiraVidro);
+                        jogouNoLixoCerto = pessoa.jogarLixo(lixoPego, lixeiraVidro);
                         listaLixo.remove(numeroRandom);
                         break;
 
                     case 5:
-                        pessoa.jogarLixo(lixoPego, lixeiraOrganico);
+                        jogouNoLixoCerto = pessoa.jogarLixo(lixoPego, lixeiraOrganico);
                         listaLixo.remove(numeroRandom);
                         break;
 
                     default:
                         System.out.println("Escolha alguma opção válida!");
                         break;
+                    }
+
+                    if(opc2 >= 1 && opc2 <= 5 && ((contadorLixeiraCerta + contadorLixeiraErrada + listaLixo.size()) == 9)) {
+                        contadorLixeiraCerta += jogouNoLixoCerto ? 1 : 0;
+                        contadorLixeiraErrada += jogouNoLixoCerto ? 0 : 1;
                     }
 
                     System.out.println();
@@ -256,7 +264,8 @@ public class App {
             return;
         }
 
-        System.out.println("\nFim do programa. Obrigado por ajudar a tornar o mundo um lugar melhor!");
+        System.out.println(String.format("\nFim do programa. Você jogou %d itens na lixeira certa e %d itens na lixeira errada", contadorLixeiraCerta, contadorLixeiraErrada));
+        System.out.println("Obrigado por ajudar a tornar o mundo um lugar melhor!");
 
         scanner.close();
         Thread.sleep(5000);
