@@ -249,6 +249,11 @@ public class App {
             scanner.close();
             Thread.sleep(5000);
             return;
+        } catch (Throwable e) {
+            System.err.println("\nOcorreu um erro inesperado. Encerrando o programa.\nErro: " + e + "\n");
+            scanner.close();
+            Thread.sleep(5000);
+            return;
         }
 
         System.out.println("\nFim do programa. Obrigado por ajudar a tornar o mundo um lugar melhor!");
